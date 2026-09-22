@@ -59,7 +59,10 @@ class TarefaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tarefa = Tarefa::find($id);
+        $usuarios = Usuario::all();
+        return view('tarefas.edit',compact('tarefa','usuarios'));
+
     }
 
     /**
@@ -67,7 +70,22 @@ class TarefaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tarefa = Tarefa::find($id);
+
+        $tarefa->update([
+            'descricao' => $request->descricao,
+            'setor' => $request->setor,
+            'prioridade' => $request->prioridade,
+            'usuario_id' => $request->usuario_id,
+            'status' => $request->status
+        ]);
+
+        $tarefasAFazer = Tarefa::where('status','A Fazer')->get();
+        $tarefasFazendo = Tarefa::where('status','Fazendo')->get();
+        $tarefasPronto = Tarefa::where('status','Pronto')->get();
+
+        return view('tarefas.index',compact('tarefasAFazer','tarefasFazendo','tarefasPronto'));
+ 
     }
 
     /**
@@ -90,7 +108,10 @@ class TarefaController extends Controller
         $tarefa->status = $request->input('status');
         $tarefa->save();
         $tarefasAFazer = Tarefa::where('status','A Fazer')->get();
-        return view('tarefas.index',compact('tarefasAFazer'));
+        $tarefasFazendo = Tarefa::where('status','Fazendo')->get();
+        $tarefasPronto = Tarefa::where('status','Pronto')->get();
+        return view('tarefas.index',compact('tarefasAFazer','tarefasFazendo','tarefasPronto'));
+
     }
 
 

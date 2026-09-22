@@ -16,7 +16,7 @@
                 <h5 class="card-title">Vinculado a:{{ $tarefa->usuario->nome }}</h5>
                 <div class="d-flex">
                    <div>
-                    <a href="#" class="btn btn-success">Editar</a>
+                    <a href="{{ route('tarefa.edit', $tarefa->id) }}" class="btn btn-success">Editar</a>
                    </div>
                    <div>
                     <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
@@ -55,7 +55,7 @@
                 <h5 class="card-title">Vinculado a:{{ $tarefa->usuario->nome }}</h5>
                 <div class="d-flex">
                    <div>
-                    <a href="#" class="btn btn-success">Editar</a>
+                    <a href="{{ route('tarefa.edit', $tarefa->id) }}" class="btn btn-success">Editar</a>
                    </div>
                    <div>
                     <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
@@ -94,7 +94,7 @@
                 <h5 class="card-title">Vinculado a:{{ $tarefa->usuario->nome }}</h5>
                 <div class="d-flex">
                    <div>
-                    <a href="#" class="btn btn-success">Editar</a>
+                    <a href="{{ route('tarefa.edit', $tarefa->id) }}" class="btn btn-success">Editar</a>
                    </div>
                    <div>
                     <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
