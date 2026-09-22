@@ -14,13 +14,17 @@
                 <h5 class="card-title">Setor: {{ $tarefa->setor }}</h5>
                 <h5 class="card-title">Prioridade: {{ $tarefa->prioridade }}</h5>
                 <h5 class="card-title">Vinculado a:{{ $tarefa->usuario->nome }}</h5>
-                <div class="col">
-                   <a href="#" class="btn btn-success">Editar</a>
-                   <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger btn-sm me-2">Excluir</button>
-                    </form>
+                <div class="d-flex">
+                   <div>
+                    <a href="#" class="btn btn-success">Editar</a>
+                   </div>
+                   <div>
+                    <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <form action="{{ route('tarefa.alterarstatus',$tarefa->id) }}" method="post">
@@ -49,13 +53,17 @@
                 <h5 class="card-title">Setor: {{ $tarefa->setor }}</h5>
                 <h5 class="card-title">Prioridade: {{ $tarefa->prioridade }}</h5>
                 <h5 class="card-title">Vinculado a:{{ $tarefa->usuario->nome }}</h5>
-                <div class="col">
-                   <a href="#" class="btn btn-success">Editar</a>
-                   <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger btn-sm me-2">Excluir</button>
-                    </form>
+                <div class="d-flex">
+                   <div>
+                    <a href="#" class="btn btn-success">Editar</a>
+                   </div>
+                   <div>
+                    <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <form action="{{ route('tarefa.alterarstatus',$tarefa->id) }}" method="post">
@@ -84,13 +92,17 @@
                 <h5 class="card-title">Setor: {{ $tarefa->setor }}</h5>
                 <h5 class="card-title">Prioridade: {{ $tarefa->prioridade }}</h5>
                 <h5 class="card-title">Vinculado a:{{ $tarefa->usuario->nome }}</h5>
-                <div class="col">
-                   <a href="#" class="btn btn-success">Editar</a>
-                   <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger btn-sm me-2">Excluir</button>
-                    </form>
+                <div class="d-flex">
+                   <div>
+                    <a href="#" class="btn btn-success">Editar</a>
+                   </div>
+                   <div>
+                    <form action="{{ route('tarefa.destroy' ,$tarefa->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <form action="{{ route('tarefa.alterarstatus',$tarefa->id) }}" method="post">
