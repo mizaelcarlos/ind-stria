@@ -14,7 +14,9 @@ class TarefaController extends Controller
     public function index()
     {
         $tarefasAFazer = Tarefa::where('status','A Fazer')->get();
-        return view('tarefas.index',compact('tarefasAFazer'));
+        $tarefasFazendo = Tarefa::where('status','Fazendo')->get();
+        $tarefasPronto = Tarefa::where('status','Pronto')->get();
+        return view('tarefas.index',compact('tarefasAFazer','tarefasFazendo','tarefasPronto'));
     }
 
     /**
@@ -73,7 +75,13 @@ class TarefaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tarefa = Tarefa::find($id);
+        $tarefa->destroy($id);
+        $tarefasAFazer = Tarefa::where('status','A Fazer')->get();
+        $tarefasFazendo = Tarefa::where('status','Fazendo')->get();
+        $tarefasPronto = Tarefa::where('status','Pronto')->get();
+        return view('tarefas.index',compact('tarefasAFazer','tarefasFazendo','tarefasPronto'));
+
     }
 
     public function alterarstatus(Request $request, string $id)
